@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>COVID</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<style>
+body{
+  background : black;
+}
+ .head{
+  color : white;
+  text-align : center;
+  margin-top : 15px;
+}
+.k{
+  color:red;
+}
+.form{
+  padding-top : 10px;
+  margin-top: 20px;
+}
+.cc{
+  color : white;
+  text-align : center;
+  margin-top : 150px;
+}
+.container{
+  margin-top:10px;
+  margin-bottom : 5px;
+}
+.container h1,p{
+  text-align : center;
+}
+</style>
+</head>
+<body>
+  <h1 class="head"> <span class="k">COVID-19</span> WORLDWIDE DATA</h1>
+<form method="post" action="" class="d-flex justify-content-center form">
+  {% csrf_token %}
+  <select name="selectedcountry" class="sc">
+    {% for list in list %}
+    <option>{{list}}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" class="btn btn-danger" style = "align : center" >
+</form>
+<h1 class="cc">{{selectedcountry}}</h1>
+<div class ="d-flex justify-content-center">
+  <div class="container " style="height:100px ; width:250px ; background-color:orange ;border-radius:10px">
+    <h1>{{total}}</h1>
+    <p> Total cases<p>
+  </div>
+  <div class="container" style="height:100px ; width:250px ; background-color:green ;border-radius:10px">
+    <h1>{{recovered}}</h1>
+    <p> Recovered <p>
+  </div>
+  <div class="container" style="height:100px ; width:250px ; background-color:yellow ;border-radius:10px">
+    <h1>{{active}}</h1>
+    <p> Active <p>
+  </div>
+
+</div>
+
+<div class ="d-flex justify-content-center">
+  <div class="container" style="height:100px ; width:250px ; background-color:skyblue;border-radius:10px">
+    <h1>{{new}}</h1>
+    <p> New <p>
+  </div>
+  <div class="container" style="height:100px ; width:250px ; background-color:gray;border-radius:10px">
+    <h1>{{deaths}}</h1>
+    <p> Death cases<p>
+  </div>
+  <div class="container" style="height:100px ; width:250px; background-color:red;border-radius:10px">
+    <h1>{{critical}}</h1>
+    <p> Critical cases<p>
+  </div>
+</div>
+
+</body>
+</html>
