@@ -1,11 +1,13 @@
 from django.shortcuts import render
 import json
 import requests
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 url = "https://covid-193.p.rapidapi.com/statistics"
 
 headers = {
-    'x-rapidapi-key': "9067ddb0d3msh262ecfc7e05fefdp19f991jsn201b4631702a",
+    'x-rapidapi-key': str(os.getenv('COVID-APIKEY')),
     'x-rapidapi-host': "covid-193.p.rapidapi.com"
     }
 response = requests.get(url, headers=headers).json()
