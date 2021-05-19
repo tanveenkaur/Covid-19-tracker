@@ -45,20 +45,20 @@ body{
 </style>
 </head>
 <body>
-  <h1 class="head"> <span class="k">COVID-19</span> WORLDWIDE DATA</h1>
+  <h1 class="head"> <span class="k">COVID-19</span> INDIA DATA</h1>
 <form method="post" action="" class="d-flex justify-content-center form">
   {% csrf_token %}
-  <select name="selectedcountry" class="sc">
+  <select name="selectedstate"  class="sc">
     {% for list in list %}
     <option value="{{list}}"
-       {% if list == selectedcountry %}selected="selected"{% endif %}>
+       {% if list == selectedstate %}selected="selected"{% endif %}>
        {{list}}
    </option>
     {% endfor %}
   </select>
   <input type="submit" class="btn btn-danger" style = "align : center" >
 </form>
-<h1 class="cc">{{selectedcountry}}</h1>
+<h1 class="cc">{{selectedstate}}</h1>
 <div class ="d-flex justify-content-center">
   <div class="container " style="height:100px ; width:250px ; background-color:orange ;border-radius:10px">
     <h1>{{total}}</h1>
@@ -84,15 +84,15 @@ body{
     <h1>{{deaths}}</h1>
     <p> Death cases<p>
   </div>
-  <div class="container" style="height:100px ; width:250px; background-color:red;border-radius:10px">
-    <h1>{{critical}}</h1>
-    <p> Critical cases<p>
+  <div class="container"  style="height:100px ; width:250px; background-color:red;border-radius:10px">
+    <h3 style = "text-align : center;">{{lastupdatedtime}}</h3>
+    <p> Updated<p>
   </div>
 </div>
 
 
-<form method="get" action="{% url 'india' %}" >
-<input class="state" type="submit" value="INDIA'S LIVE CORONA UPDATES">
+<form method="get" action="{% url 'home' %}" >
+<input class="state" type="submit" value="WORLDWIDE DATA">
 </form>
 
 </body>
